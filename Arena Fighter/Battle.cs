@@ -19,7 +19,14 @@ namespace Arena_Fighter
         {
             this.player = player;
             opponentChar = opponent;
+            while(player.getHealth() > 0)
+            {
             Round r = new Round(this);
+            if(opponentChar.getHealth() <= 0)
+                {
+                    break;
+                }
+            }
 
         }
         public void log(string logMessage)

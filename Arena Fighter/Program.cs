@@ -5,6 +5,7 @@ namespace Arena_Fighter
 {
     class Program
     {
+        // TODO!
         //[X]while the player is alive
         //[X]create an opponent for them to fight
         //[X]each round roll a 6 sided die and see who gets the highest roll
@@ -21,9 +22,11 @@ namespace Arena_Fighter
             string pcName = Helper.conWriteRead("What is your character name?: ");
             Character player = new Character(pcName);
             player.displayStats();
-            Character opponent = new Character("Opponent");
             while(player.getHealth() > 0)
             {
+                
+                Character opponent = new Character("Opponent");
+                opponent.displayStats();
                 Battle b = new Battle(player, opponent);
                 
             }
