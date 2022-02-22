@@ -17,19 +17,20 @@ namespace Arena_Fighter
         //[]if they die or choose to retire
         //[]Show score of how many opponents they defeated and prompt them to start again
         public static List<string> battleLog = new List<string>();
+        public static int opponentsBeaten;
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
             //Get player input for character name
             string pcName = Helper.conWriteRead("What is your character name?: ");
-            Character player = new Character(pcName);
-            player.displayStats();
+            Character player = new Character(pcName,500);
+            //player.displayStats();
+
             while(player.getHealth() > 0)
             {
                 Character opponent = new Character("Opponent");
-                opponent.displayStats();
+                //opponent.displayStats();
                 Battle b = new Battle(player, opponent);
-
             }
             
             //[X]Randomize it's attributes

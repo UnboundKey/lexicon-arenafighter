@@ -26,6 +26,17 @@ namespace Arena_Fighter
             this.strength = strength;
             this.health = health;
         }
+        public Character(string name, int randomMax)
+        {
+           
+            Random r = new Random();
+            this.name = name;
+            //randomizing the strength value
+            strength = r.Next(randomMax);
+            health = r.Next(randomMax);
+
+        }
+
         public int getHealth()
         {
             return health;

@@ -24,6 +24,7 @@ namespace Arena_Fighter
                 Round r = new Round(this);
                 if (opponentChar.getHealth() <= 0)
                 {
+                    Program.opponentsBeaten++;
                     break;
                 }
             }
