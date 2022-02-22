@@ -41,6 +41,10 @@ namespace Arena_Fighter
         {
             return health;
         }
+        public string getName()
+        {
+            return name;
+        }
         public void attack(Character target)
         {
 

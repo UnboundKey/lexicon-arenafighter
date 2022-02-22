@@ -33,7 +33,7 @@ namespace Arena_Fighter
         public void log(string logMessage)
         {
             battleLog.Add(logMessage);
-            Console.WriteLine(logMessage);
+            //Console.WriteLine(logMessage);
         }
         public void log(string logMessage, List<string> battleLogList)
         {

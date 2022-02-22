@@ -114,7 +114,6 @@ namespace UnboundKey
             }
             return conSelection;
         }
-
         public static string StringFlipper(string Input)
         {
             string reversedInput = "";
@@ -124,7 +123,10 @@ namespace UnboundKey
             }
             return reversedInput;
         }
-
+        public static void writeSeparator()
+        {
+            Console.WriteLine("---------------------------------------------");
+        }
         public static int[] SortArray(int[] unsortedIntArray)
         {
             int[] sortedInts = new int[unsortedIntArray.Length];
