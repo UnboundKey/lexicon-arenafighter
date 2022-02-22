@@ -16,7 +16,7 @@ namespace Arena_Fighter
         //[X]tally upp all the opponens beaten
         //[X]if they die or choose to retire
         //[X]Show score of how many opponents they defeated
-        //[]prompt them to start again
+        //[X]prompt them to restart again
             
         //[X]Randomize it's attributes
         //[X]create opponents with random attributes
@@ -27,37 +27,50 @@ namespace Arena_Fighter
         public static int opponentsBeaten;
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            //Get player input for character name
-            string pcName = Helper.conWriteRead("What is your character name?: ");
-            Character player = new Character(pcName);
-            //player.displayStats();
-
-            while(player.getHealth() > 0)
+            while (true)
             {
-                Character opponent = new Character("Opponent");
-                //opponent.displayStats();
-                Battle b = new Battle(player, opponent);
-                //if the player died in the last battle. break out of the loop
-                if(player.getHealth() < 0) break;
+                Console.WriteLine("Arena Fighter!");
+                //Get player input for character name
+                string pcName = Helper.conWriteRead("What is your character name?: ");
+                Character player = new Character(pcName);
+                //player.displayStats();
 
-                // Ask the player if they want to continue and do if they answer with the right number.
-                string conInput = Helper.conWriteRead("Opponent beaten, do you want to (0)Continue or (1)Retire:");
-                if(Helper.ParseInt(conInput) == 1)
+                while(player.getHealth() > 0)
                 {
-                    break;
-                }else if (Helper.ParseInt(conInput) == 0)
+                    Character opponent = new Character("Opponent");
+                    //opponent.displayStats();
+                    Battle b = new Battle(player, opponent);
+                    //if the player died in the last battle. break out of the loop
+                    if(player.getHealth() < 0) break;
+
+                    // Ask the player if they want to continue and do if they answer with the right number.
+                    string conInput = Helper.conWriteRead("Opponent beaten, do you want to (0)Continue or (1)Retire:");
+                    if(Helper.ParseInt(conInput) == 1)
+                    {
+                        break;
+                    }else if (Helper.ParseInt(conInput) == 0)
+                    {
+                        continue;
+                    }
+                }
+            
+                Helper.writeSeparator();
+                foreach (var item in battleLog)
+                {
+                    Console.WriteLine(item);
+                }
+                Console.WriteLine("Opponents Beaten: " + opponentsBeaten);
+
+                string conQuitInput = Helper.conWriteRead("You were defeated, do you want to play again? Y/N:");
+                if (conQuitInput.ToLower() == "y" || conQuitInput.ToLower() == "yes")
                 {
                     continue;
                 }
+                else
+                {
+                    Environment.Exit(0);
+                }
             }
-            
-            Helper.writeSeparator();
-            foreach (var item in battleLog)
-            {
-                Console.WriteLine(item);
-            }
-            Console.WriteLine("Opponents Beaten: " + opponentsBeaten);
         }
     }
 }
