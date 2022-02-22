@@ -20,7 +20,7 @@ namespace Arena_Fighter
             {
                 battle.opponentChar.attack(battle.player);
             }
-            battle.log(string.Format("Player Health: {0}, Player Attack Roll: {1}, Opponent Health: {2}, Opponent Attack Roll: {3}",battle.player.getHealth(),playerRand,battle.opponentChar.getHealth(),opponentRand));
+            battle.log(string.Format("Player Health: {0}, Player Attack Roll: {1}, Opponent Health: {2}, Opponent Attack Roll: {3}",battle.player.getHealth(),playerRand,battle.opponentChar.getHealth(),opponentRand), Program.battleLog);
         }
 
 
