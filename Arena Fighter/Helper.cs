@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace UnboundKey
+namespace UnboundKey.Tools
 {
     class Helper
     {

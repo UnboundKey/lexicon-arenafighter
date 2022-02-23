@@ -47,12 +47,15 @@ namespace Arena_Fighter
         }
         public void attack(Character target)
         {
-
             target.health = target.health - this.strength;
         }
         public void displayStats()
         {
             Console.WriteLine(string.Format("Health: {0},Strength: {1}",health,strength));
+        }
+        public string getStats()
+        {
+            return string.Format("Health: {0},Strength: {1}", health, strength);
         }
     }
 }

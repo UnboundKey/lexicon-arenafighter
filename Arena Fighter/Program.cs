@@ -1,6 +1,7 @@
 ﻿using UnboundKey;
 using System;
 using System.Collections.Generic;
+using UnboundKey.Tools;
 
 namespace Arena_Fighter
 {
@@ -29,11 +30,14 @@ namespace Arena_Fighter
         {
             while (true)
             {
+                // Resetting values to clear everything propperly on a new round
+                Console.Clear();
+                battleLog.Clear();
+                opponentsBeaten = 0;
                 Console.WriteLine("Arena Fighter!");
                 //Get player input for character name
                 string pcName = Helper.conWriteRead("What is your character name?: ");
                 Character player = new Character(pcName);
-                //player.displayStats();
 
                 while(player.getHealth() > 0)
                 {
