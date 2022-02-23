@@ -30,7 +30,7 @@ namespace Arena_Fighter
         {
             while (true)
             {
-                // Resetting values to clear everything propperly on a new round
+                // Resetting values to clear everything propperly on a new battle
                 Console.Clear();
                 battleLog.Clear();
                 opponentsBeaten = 0;
@@ -39,10 +39,10 @@ namespace Arena_Fighter
                 string pcName = Helper.conWriteRead("What is your character name?: ");
                 Character player = new Character(pcName);
 
+                //while the player hasn't died create a new opponent and start a new battle
                 while(player.getHealth() > 0)
                 {
                     Character opponent = new Character("Opponent");
-                    //opponent.displayStats();
                     Battle b = new Battle(player, opponent);
                     //if the player died in the last battle. break out of the loop
                     if(player.getHealth() < 0) break;
@@ -59,12 +59,13 @@ namespace Arena_Fighter
                 }
             
                 Helper.writeSeparator();
+                //loop through the battle log and print each item in the log
                 foreach (var item in battleLog)
                 {
                     Console.WriteLine(item);
                 }
                 Console.WriteLine("Opponents Beaten: " + opponentsBeaten);
-
+                //check if the player wants to keep playing otherwise quit the program
                 string conQuitInput = Helper.conWriteRead("You were defeated, do you want to play again? Y/N:");
                 if (conQuitInput.ToLower() == "y" || conQuitInput.ToLower() == "yes")
                 {

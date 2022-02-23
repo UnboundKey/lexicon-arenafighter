@@ -17,9 +17,12 @@ namespace Arena_Fighter
             
             while (player.getHealth() > 0)
             { 
+                //log the players stats before each round
                 log(player.getName() + " " + player.getStats(),Program.battleLog);
                 log(opponent.getName() + " " + opponent.getStats(), Program.battleLog);
+                //Start a new round
                 Round r = new Round(this);
+                //if the opponent dies from the last round, break the loop and add to the beaten opponent counter
                 if (opponentChar.getHealth() <= 0)
                 {
                     Program.opponentsBeaten++;
